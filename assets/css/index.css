@@ -1,0 +1,10 @@
+.title {
+    font-family: 'Helvetica';
+}
+.description p {
+  text-align: justify;
+}
+.card p{
+    /* text-align: left; */
+}
+
