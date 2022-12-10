@@ -19,7 +19,7 @@
     </div>
     <p>Telah memiliki akun? <a href="<?= base_url('authentication') ?>">Sign in</a></p>
     <div class="row justify-content-center mb-5 mt-5">
-        <button type="submit" class="btn btn-primary">Masuk</button>
+        <button type="submit" class="btn btn-primary">Daftar</button>
     </div>
     </form>
     </div>

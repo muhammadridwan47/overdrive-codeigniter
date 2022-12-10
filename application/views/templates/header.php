@@ -20,6 +20,10 @@
           <div class="navbar-nav">
             <a class="nav-link" href="<?= base_url('home') ?>">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?= base_url('product') ?>">Product</a>
+            <?php if (isAdmin()): ?>
+              <a class="nav-link" href="<?= base_url('admin') ?>">Admin</a>
+              <a class="nav-link" href="<?= base_url('checkout') ?>">Checkout</a>
+            <?php endif ?>
             <a class="nav-link" href="<?= base_url('about') ?>">About Us</a>
             <?php if ($this->session->userdata('email')): ?>
               <a class="nav-link" href="<?= base_url('authentication/logout') ?>">Logout</a>

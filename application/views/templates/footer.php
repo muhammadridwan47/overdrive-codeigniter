@@ -20,7 +20,7 @@
                     <p class="card-text m-0 wide-modal"></p>
                     <p class="card-text m-0 sertificate-modal">t</p>
                   </div>
-                  <a href="https://wa.me/6281398786403" class="btn btn-success">Hubungi Kami</a>
+                  <a href="#" class="btn btn-success id-url">Hubungi Kami</a>
               </div>
             </div>
         </div>
@@ -56,9 +56,9 @@
     <script >
         $(document).ready(function(){
             $( ".card-link" ).on( "click", function(s) {
-
                 //get image by card
                 let getElement = $(this).children(s)[0]
+                $('.id-url').attr('href', `${getElement.getAttribute('data-id')}`)
                 $('.img-modal').attr('src',getElement.getElementsByClassName('card-img-top')[0].currentSrc)
                 $('.title-modal').text(getElement.getElementsByClassName('card-title')[0].innerHTML)
                 $('.description-modal').text(getElement.getElementsByClassName('card-text')[0].innerHTML)
@@ -66,11 +66,13 @@
                 $('.interior-modal').text(`Interior:  ${getElement.getAttribute('data-interior')}`)
                 $('.wide-modal').text(`Luas: ${getElement.getAttribute('data-wide')}`)
                 $('.sertificate-modal').text(`Sertifikat: ${getElement.getAttribute('data-sertificate')}`)
-
                 // open modal 
                 $('#myModal').modal('show');
-
             });
+            $('.custom-file-input').on('change', function() {
+                    let fileName = $(this).val().split('\\').pop();
+                    $(this).next('.custom-file-label').addClass("selected").html(fileName);
+                });
         });
     </script>
 </body>

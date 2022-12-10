@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 19, 2022 at 04:44 PM
+-- Generation Time: Dec 10, 2022 at 07:01 PM
 -- Server version: 5.7.34
 -- PHP Version: 8.0.8
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `overdrive`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+CREATE TABLE `checkout` (
+  `id_checkout` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `click` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id_checkout`, `id_produk`, `click`) VALUES
+(1, 1, 4),
+(2, 2, 4),
+(3, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -59,6 +80,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi_produk`, `harga_pro
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `nama` varchar(200) NOT NULL,
+  `role` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -67,16 +89,22 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `email`, `password`) VALUES
-(1, 'Singkolang', 'yulismunandar17@gmail.com', '$2y$10$u5uloaaLCZB.njtxzE9.BuQOgRhBUQZGuefWmZ6KHgGPdp2YhI3Ca'),
-(2, 'hendi Juniar', 'hendijuniar@gmail.com', '$2y$10$rjzAPptxPnax7axO45d6POiFn4vowesz28R139lmXyvzxL3Dxb/96'),
-(3, 'tes', 'tes@gmail.com', '$2y$10$Q.LKXnrLtuzS6cgAMCjaQe5CHle6jDOiNn/kGUiPMfRt21w4Bf6U2'),
-(4, 'anas', 'anas@gmail.com', '$2y$10$Qhb4NNREPTCGN2W7tnO05ORMVGnT21iRmsajXVc6g4ZmzJIJqBRG6'),
-(5, 'hani Chuby', 'hani@gmail.com', '$2y$10$shczEoK16u67a92KykIVFO4whWLRebrhpxNYXwV0g/iaD6vvkgABO');
+INSERT INTO `user` (`id`, `nama`, `role`, `email`, `password`) VALUES
+(1, 'Singkolang', 'user', 'yulismunandar17@gmail.com', '$2y$10$u5uloaaLCZB.njtxzE9.BuQOgRhBUQZGuefWmZ6KHgGPdp2YhI3Ca'),
+(2, 'hendi Juniar', 'user', 'hendijuniar@gmail.com', '$2y$10$rjzAPptxPnax7axO45d6POiFn4vowesz28R139lmXyvzxL3Dxb/96'),
+(3, 'tes', 'user', 'tes@gmail.com', '$2y$10$Q.LKXnrLtuzS6cgAMCjaQe5CHle6jDOiNn/kGUiPMfRt21w4Bf6U2'),
+(4, 'anas', 'admin', 'anas@gmail.com', '$2y$10$Qhb4NNREPTCGN2W7tnO05ORMVGnT21iRmsajXVc6g4ZmzJIJqBRG6'),
+(5, 'hani Chuby', 'user', 'hani@gmail.com', '$2y$10$shczEoK16u67a92KykIVFO4whWLRebrhpxNYXwV0g/iaD6vvkgABO');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`id_checkout`);
 
 --
 -- Indexes for table `produk`
@@ -95,10 +123,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `checkout`
+--
+ALTER TABLE `checkout`
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_produk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`

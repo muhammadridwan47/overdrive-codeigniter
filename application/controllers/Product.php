@@ -9,4 +9,20 @@ class Product extends CI_Controller
         $this->load->view('product/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function checkout($idProduct)
+    {
+        if (!$this->session->userdata('email')) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message text-center" role="alert">Anda harus login terlebih dahulu sebelum menghubungi penjual</div>');
+            redirect('authentication');
+        } else {
+            $result = $this->ModelProduct->getProductCheckoutById($idProduct);
+            if($result) {
+                $this->ModelProduct->setCheckout($idProduct, $result['click']);
+            } else {
+                $this->ModelProduct->insertCheckout($idProduct);
+            }
+            redirect('https://wa.me/6281217637240');
+        }
+    }
 }
