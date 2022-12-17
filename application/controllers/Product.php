@@ -3,7 +3,11 @@ class Product extends CI_Controller
 {
     public function index()
     {
-        $allProduct = $this->ModelProduct->getAllProduct()->result_array();
+        if($search = $this->input->get('search', TRUE)) {
+            $allProduct = $this->ModelProduct->getAllProductBySearch($search)->result_array();
+        } else {
+            $allProduct = $this->ModelProduct->getAllProduct()->result_array();
+        }
         $data = ['products' => $allProduct];
         $this->load->view('templates/header');
         $this->load->view('product/index', $data);

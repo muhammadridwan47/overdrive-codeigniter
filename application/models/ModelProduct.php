@@ -9,6 +9,13 @@ class ModelProduct extends CI_Model
         return $this->db->get();
     }
 
+    public function getAllProductBySearch($search = '')
+    {
+        $this->db->from('produk');
+        $this->db->like('nama_produk', $search);
+        return $this->db->get();
+    }
+
     public function getProductCheckoutById($idProduct = null)
     {
         return $this->db->get_where('checkout',['id_produk' => $idProduct])->row_array();

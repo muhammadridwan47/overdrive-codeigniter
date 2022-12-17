@@ -9,6 +9,13 @@ class ModelAdmin extends CI_Model
         return $this->db->get();
     }
 
+    public function getAllProductBySearch($search = '')
+    {
+        $this->db->from('produk');
+        $this->db->like('nama_produk', $search);
+        return $this->db->get();
+    }
+
     public function deleteProductById($idProduct)
     {
         $this->db->delete('produk', ['id_produk' => $idProduct]);

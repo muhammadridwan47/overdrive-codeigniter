@@ -50,6 +50,7 @@ class Authentication extends CI_Controller
                 redirect('home');
             } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password Salah!!</div>');
+                redirect('authentication');
             }
         } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');

@@ -10,7 +10,11 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $allProduct = $this->ModelAdmin->getAllProduct()->result_array();
+        if($search = $this->input->get('search', TRUE)) {
+            $allProduct = $this->ModelAdmin->getAllProductBySearch($search)->result_array();
+        } else {
+            $allProduct = $this->ModelAdmin->getAllProduct()->result_array();
+        }
         $data = ['products' => $allProduct];
         $this->load->view('templates/header');
         $this->load->view('admin/index', $data);

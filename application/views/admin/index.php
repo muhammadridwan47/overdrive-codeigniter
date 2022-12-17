@@ -3,10 +3,21 @@
         <div class="col">
         <h1 class="display-4 d-inline">List Product</h1>
         <a href="<?= base_url('admin/create') ?>" class="btn btn-success btn-sm mt-4  float-right">tambah data</a>
-        <table class="table table-hover table-responsive mt-4" >
+             <!-- Searching -->
+             <!-- <center> -->
+        <form action="<?= base_url('admin') ?>" method="GET">
+          <div class="input-group mt-4 w-25">
+              <input type="text" class="form-control" placeholder="Search product..." name="search" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                  <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+              </div>
+          </div>
+        </form>
+        <!-- </center> -->
+        <table class="table table-hover table-responsive mt-3" >
             <thead>
                 <tr>
-                <th scope="col">#</th>
+                <th scope="col">No</th>
                 <th scope="col">Nama Produk</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Interior Produk</th>
