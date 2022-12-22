@@ -1,4 +1,4 @@
-<div class="row justify-content-center m-5">
+<div class="row justify-content-center m-5"  style="min-height: 500px;">
     <div class="col-6">
     <form action="<?= base_url('authentication') ?>" method="post" class="mt-5">
     <?= $this->session->flashdata('pesan'); ?>

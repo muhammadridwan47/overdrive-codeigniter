@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" style="min-height: 500px;">
     <div class="row">
         <div class="col">
         <h1 class="display-4 d-inline">List Product</h1>
